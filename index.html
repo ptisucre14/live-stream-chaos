@@ -34,18 +34,19 @@
             overflow: hidden;
         }
 
-        /* Encarts événements (Top Bars) inspirés du logo synthwave */
+        /* Encarts événements (Top Bars) */
         .event-card {
             position: relative;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: 390px;
-            padding: 10px 20px;
+            width: 380px;
+            height: 52px;
+            padding: 6px 14px;
             border-radius: 16px;
             overflow: hidden;
             
-            /* Fond Spatial Néon (Style Logo) */
+            /* Fond Spatial Néon */
             background: linear-gradient(135deg, rgba(30, 8, 55, 0.9) 0%, rgba(10, 2, 22, 0.95) 50%, rgba(5, 12, 35, 0.9) 100%);
             backdrop-filter: blur(14px);
             
@@ -55,11 +56,9 @@
                 0 0 20px rgba(0, 229, 255, 0.35),
                 0 0 35px rgba(255, 0, 127, 0.25),
                 inset 0 0 15px rgba(0, 229, 255, 0.2);
-            
-            transition: all 0.3s ease;
         }
 
-        /* Variation Rose / Magenta pour alterner */
+        /* Variation Rose / Magenta */
         .event-card.pink-theme {
             border: 2px solid rgba(255, 0, 127, 0.7);
             box-shadow: 
@@ -68,17 +67,14 @@
                 inset 0 0 15px rgba(255, 0, 127, 0.2);
         }
 
-        /* Effet Visuel Interne : Ondes Néon & Égaliseur Audio en Fond */
+        /* Effet Visuel Interne */
         .event-card::before {
             content: '';
             position: absolute;
             inset: 0;
             background: 
-                /* Vague néon violette/rose */
                 radial-gradient(circle at 10% 50%, rgba(255, 0, 127, 0.3) 0%, transparent 60%),
-                /* Vague néon cyan */
                 radial-gradient(circle at 90% 50%, rgba(0, 229, 255, 0.3) 0%, transparent 60%),
-                /* Lignes égaliseur discret */
                 repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 2px, transparent 2px, transparent 8px);
             z-index: 1;
             pointer-events: none;
@@ -103,18 +99,19 @@
             100% { transform: rotate(360deg) translateY(-30%); }
         }
 
-        /* Badge Label (Gauche) */
+        /* Badge Label à gauche */
         .event-badge {
             position: relative;
             z-index: 5;
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 5px 14px;
+            gap: 8px;
+            padding: 6px 14px;
             border-radius: 50px;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.55);
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            flex-shrink: 0;
         }
 
         .cyan-theme .event-badge i {
@@ -130,76 +127,60 @@
         .event-badge span {
             font-size: 0.75rem;
             font-weight: 800;
-            letter-spacing: 0.12em;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
             color: #ffffff;
             text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
         }
 
-        /* Pseudo / Texte (Droite) */
-        .event-value {
+        /* Zone vide réservée aux widgets OBS */
+        .widget-space {
             position: relative;
             z-index: 5;
-            font-size: 1rem;
-            font-weight: 800;
-            letter-spacing: 0.03em;
-            background: linear-gradient(180deg, #ffffff 40%, #a5f3fc 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 8px rgba(0, 229, 255, 0.6));
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-width: 170px;
-        }
-
-        .pink-theme .event-value {
-            background: linear-gradient(180deg, #ffffff 40%, #fbcfe8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 8px rgba(255, 0, 127, 0.6));
+            flex-grow: 1;
+            height: 100%;
         }
     </style>
 </head>
 <body class="w-[1920px] h-[1080px] relative select-none">
 
-    <!-- Barre supérieure des événements du Live avec fond inspiré de l'avatar -->
+    <!-- Barre supérieure des événements du Live -->
     <div class="absolute top-6 left-0 right-0 flex justify-center items-center gap-6 px-10 z-50">
         
-        <!-- LATEST SUBSCRIBER -->
+        <!-- SUBSCRIBER -->
         <div class="event-card cyan-theme">
             <div class="event-badge">
                 <i class="fa-solid fa-star text-sm"></i>
                 <span>Subscriber</span>
             </div>
-            <div class="event-value">Ix_lucy22</div>
+            <div class="widget-space"></div>
         </div>
 
-        <!-- LATEST FOLLOWER -->
+        <!-- FOLLOWER -->
         <div class="event-card pink-theme">
             <div class="event-badge">
                 <i class="fa-solid fa-heart text-sm"></i>
                 <span>Follower</span>
             </div>
-            <div class="event-value">Dexray1006</div>
+            <div class="widget-space"></div>
         </div>
 
-        <!-- LATEST DONATION -->
+        <!-- DONATION -->
         <div class="event-card cyan-theme">
             <div class="event-badge">
                 <i class="fa-solid fa-dollar-sign text-sm"></i>
                 <span>Donation</span>
             </div>
-            <div class="event-value">--</div>
+            <div class="widget-space"></div>
         </div>
 
-        <!-- LATEST CHEER -->
+        <!-- CHEER -->
         <div class="event-card pink-theme">
             <div class="event-badge">
                 <i class="fa-solid fa-gem text-sm"></i>
                 <span>Cheer</span>
             </div>
-            <div class="event-value">Tb_RedWolf: 200</div>
+            <div class="widget-space"></div>
         </div>
 
     </div>
